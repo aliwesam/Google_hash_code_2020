@@ -1,0 +1,29 @@
+def Devteam(filename, output):  # filename : input file | output : give name for output file
+    with open(filename) as fin:
+        x=fin.readline().split()
+        days=x[2]
+        Score_needed=fin.readline()
+        lib_and_books=fin.readlines()
+        arr=[]
+        arr2=[]
+        libnum=0
+        for i in lib_and_books:
+            arr.append(i)
+        print(arr[::-1])
+        for i in range(len(arr)-1):
+            if i % 2==0:
+                m=arr[i].split()
+                b=m[0]
+                boo=arr[i+1]
+                arr2.append(''+str(libnum)+' ' ' '+str(b)+'\n'''+str(boo)+'')
+                libnum=libnum+1
+        myfile=open('' + output + '.out', 'w')
+        myfile.write(str(x[1])+'\n')
+        for i in arr2:
+            myfile.write(str(i))
+files = [
+    "a_example.txt"
+]
+for file in files:
+    fileout = file[:-3]
+    Devteam("INPUT/"+file, "OUTPUT/"+fileout)
